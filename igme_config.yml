@@ -1,0 +1,29 @@
+title: Multithreading Issues
+author:
+  name: Sean Connolly
+  email:
+  github: maegico
+description: A description and solution of several issues encountered when programming multithreaded applications.
+language: C++
+image:
+  icon: https://cloud.githubusercontent.com/assets/10502938/13506660/28be0300-e14d-11e5-90e3-b194f14e52bd.PNG
+  banner: https://cloud.githubusercontent.com/assets/10502938/13506660/28be0300-e14d-11e5-90e3-b194f14e52bd.PNG
+tags:
+  - C++
+  - Core
+extra_resources:
+  - "https://en.wikipedia.org/wiki/Linearizability"
+  - "http://austingwalters.com/multithreading-common-pitfalls/"
+  - "http://www.drdobbs.com/tools/avoiding-classic-threading-problems/231000499"
+  - "http://www.cplusplus.com/reference/condition_variable/condition_variable/"
+  - "http://www.cplusplus.com/reference/condition_variable/condition_variable/"
+  - "http://www.cplusplus.com/reference/condition_variable/condition_variable/notify_one/"
+  - "https://en.wikipedia.org/wiki/Deadlock"
+  - "http://stackoverflow.com/questions/6155951/whats-the-difference-between-deadlock-and-livelock"
+  - "http://stackoverflow.com/questions/1385843/simple-deadlock-examples"
+  - "http://stackoverflow.com/questions/1036364/good-example-of-livelock"
+  - "http://stackoverflow.com/questions/6155951/whats-the-difference-between-deadlock-and-livelock"
+  - "http://austingwalters.com/multithreading-common-pitfalls/"
+  - "https://www.youtube.com/watch?v=lVBvHbJsg5Y"
+connections:
+  - "Basic Multithreading"
