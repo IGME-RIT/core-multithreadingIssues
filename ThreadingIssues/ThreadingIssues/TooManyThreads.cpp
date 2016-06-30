@@ -26,6 +26,14 @@ void fnctn2();
 		//http://searchstorage.techtarget.com/definition/virtual-memory - look into
 	//convoying or in other words highy contested locks - when threads line up waiting to acquire a lock
 
+
+
+
+//IGNORE THE BELOW EXAMPLE, IT ISN'T EVEN CLOSE TO FINISHED
+
+
+
+
 static const int numThreads = 8;
 //static const int numThreads = 64;
 

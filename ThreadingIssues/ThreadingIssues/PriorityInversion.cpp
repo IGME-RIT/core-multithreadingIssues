@@ -18,6 +18,14 @@
 //Also, on Posix based systems you can set the Job Scheduler's priority for the threads themselves
 
 
+
+
+//IGNORE THE BELOW EXAMPLE, IT ISN'T EVEN CLOSE TO FINISHED
+
+
+
+
+
 struct PriorityThread
 {
 	//nothing more than an 8bit integer type

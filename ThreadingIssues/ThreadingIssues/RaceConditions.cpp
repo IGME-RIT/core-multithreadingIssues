@@ -4,8 +4,12 @@
 	//http://austingwalters.com/multithreading-common-pitfalls/
 	//https://www.youtube.com/watch?v=lVBvHbJsg5Y
 
-//Race Conditions
-	//When one or more threads simultaneously access a critical section
+//Race Condition
+	//This is merely the behavior of our code where the output is dependent on the sequence of uncontrollable events
+	//This can happen when one or more threads simultaneously access a critical section with out any guarantee of the memory ordering
+		//By memory ordering I merely mean the order in which the reads (if(num) <- reading num's value) and the writes (num = 5 <- writing the value 5 into num) happen in the code
+
+//Below we will show an example of a race condition
 
 void function1RC();
 void function2RC();
@@ -31,7 +35,7 @@ static std::mutex m;
 static long long dataRace = 0;
 
 //This is merely a function that increments a number 10 times
-//since this number is being //s
+//since this number is being incremented and stored and there is no mutex this, you will notice a problem with the output
 void function1RC()
 {
 	for (int i = 0; i < 10; i++)
@@ -39,6 +43,7 @@ void function1RC()
 		//First you load dataRace and save it into numy
 		//Then you store 1 plus numy in dataRace
 		//These are two separate operations in assembly and that is what it compiles down into
+
 		int numy = (int)dataRace;
 		//A data race can occur here.
 		//After Data Race has been loaded, but before it is stored a thread may access it and change it,
@@ -59,6 +64,7 @@ void function2RC()
 		//First you load dataRace and save it into numy
 		//Then you store 1 plus numy in dataRace
 		//These are two separate operations in assembly and that is what it compiles down into
+
 		int numy = (int)dataRace;
 		//A data race can occur here.
 		//After Data Race has been loaded, but before it is stored back into dataRace a thread may access it and change it,
@@ -72,7 +78,7 @@ void function2RC()
 	printf("Function2RC Done\n");
 }
 
-//Run this set of examples a few times and loop at the output
+//Run this set of examples a few times and look at the output
 //Notice how variables will be printed to the screen in the incorrect order
 	//(the number 5 printing after the number 17 for example)
 	//whether it was printed by F1 or F2 doesn't matter
@@ -80,6 +86,7 @@ void function2RC()
 //To solve this issue requires a few steps
 	//1) figure out the critical section
 	//2) make the critical section uninterruptible or make the operations atomic
+		//Can be done with locks or more advanced techniques
 
 //The simplest way to solve this is to mutex the critical section
 //Try it by passing in these functions into the threads
