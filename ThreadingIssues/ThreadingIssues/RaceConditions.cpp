@@ -5,7 +5,8 @@
 	//https://www.youtube.com/watch?v=lVBvHbJsg5Y
 
 //Race Condition
-	//This is merely the behavior of our code where the output is dependent on the sequence of uncontrollable events
+	//This is merely the behavior of our code when the output is dependent on the sequence of uncontrollable events
+		//Used: https://en.wikipedia.org/wiki/Race_condition
 	//This can happen when one or more threads simultaneously access a critical section with out any guarantee of the memory ordering
 		//By memory ordering I merely mean the order in which the reads (if(num) <- reading num's value) and the writes (num = 5 <- writing the value 5 into num) happen in the code
 
