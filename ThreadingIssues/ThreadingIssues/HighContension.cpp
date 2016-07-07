@@ -53,5 +53,5 @@ void test(int numThread)
 //The solution is dependant on the current issue.
 	//In this case,
 		//Could just not use multithreading
-		//Could increment 10 different numbers and then add them together later - not the best idea, since that is 9 extra variables
+		//Could increment 8 different numbers and then add them together later - not the best idea, since that is 7 extra variables, but still much faster
 		//There could be more.

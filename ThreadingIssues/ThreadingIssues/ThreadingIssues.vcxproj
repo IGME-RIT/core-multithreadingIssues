@@ -61,6 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -74,7 +75,6 @@
     <ClCompile Include="HighContension.cpp" />
     <ClCompile Include="Livelock.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PriorityInversion.cpp" />
     <ClCompile Include="RaceConditions.cpp" />
     <ClCompile Include="TooManyThreads.cpp" />
   </ItemGroup>

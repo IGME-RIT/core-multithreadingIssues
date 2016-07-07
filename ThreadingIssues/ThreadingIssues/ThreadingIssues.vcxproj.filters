@@ -27,9 +27,6 @@
     <ClCompile Include="HighContension.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PriorityInversion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TooManyThreads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

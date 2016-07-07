@@ -16,7 +16,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*	This tutorial deals with the various issues that can occure when multithreading in C/C++.
+*	This tutorial deals with the various issues that can occur when multithreading in C/C++.
 *	It covers issues such as Deadlock, Livelock, High Contentsion, Priority Inversion, Data Races, and too many threads.
 */
 #include "ClassDeclarations.h"
@@ -43,6 +43,7 @@ the CPU reads and writes these types in a single bus transaction,
 making it impossible for other threads to see them in a half-completed state.
 On x86 and x64 there, is no guarantee that reads and writes larger than eight bytes are atomic.
 This means that 16-byte reads and writes of streaming SIMD extension (SSE) registers, and string operations, might not be atomic.*/
+	//From: Preshing On Programming
 
 
 //More resources on Threading:
@@ -59,12 +60,21 @@ This means that 16-byte reads and writes of streaming SIMD extension (SSE) regis
 //Atomic Operation - an operation that appears to the rest of the system to occur instantaneously
 	//https://en.wikipedia.org/wiki/Linearizability
 
-//Starvtion - When a process hogs a resource that another process needs, thus starving it
-	//I bring this up, since hardware, softawre, and processes are all going to be talked about in this tutorial
-		//And this can be a problem if another process starves one of your threads
-
 //Paging - rapidly exchanging memory(RAM) for data on disk(HDD or SSD)
 	//It grabs data from the secondary storage(HDD or SSD) in same size blocks called pages
+
+//Below are a few threading issues that should be talked about, but are not able to be easily shown using C++11 code using VS2013
+
+//Starvation - When a process hogs a resource that another process needs, thus starving it
+	//I bring this up, since hardware, softawre, and processes are all going to be talked about in this tutorial
+	//And this can be a problem if another process starves one of your threads
+
+//Priority Inversion - When one thread with a lower priority gets a hold of a mutex that a higher priority thread requires
+	//This means that the priorities get inverted as the higher priority thread must wait for the lower priority thread to finish it's job
+	//Priority Inversion tends to happen in real time systems
+	//Also, on Posix based systems you can set the Job Scheduler's priority for the threads themselves
+	//Used for Definition: http://www.drdobbs.com/tools/avoiding-classic-threading-problems/231000499?pgno=1
+	//For more info: http://www.drdobbs.com/jvm/what-is-priority-inversion-and-how-do-yo/230600008
 
 int main()
 {
@@ -78,7 +88,7 @@ int main()
 
 	//Not done?
 	Livelock livelockExample;
-	livelockExample.livelockExample();
+	//livelockExample.livelockExample();
 
 	ConditionVariables conditionVariableExample;
 	//conditionVariableExample.conditionVariablesExample();

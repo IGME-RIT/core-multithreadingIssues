@@ -40,8 +40,11 @@ static std::mutex mtx2;
 
 void Livelock::livelockExample()
 {
-	std::thread t1(func1Sol);
-	std::thread t2(func2Sol);
+	std::thread t1(func1);
+	std::thread t2(func2);
+
+	/*std::thread t1(func1Sol);
+	std::thread t2(func2Sol);*/
 
 	if(t1.joinable())
 		t1.join();
@@ -118,7 +121,8 @@ void func2()
 
 static std::condition_variable cv;
 
-///Solve by ensuring only one process has priority
+//Solve by ensuring only one process has priority
+//In this case we will use condition variables to make sure when thread goes before the other
 void func1Sol()
 {
 	//lock mtx1
