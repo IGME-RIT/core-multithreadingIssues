@@ -47,4 +47,7 @@ void bar()
 		//From:http://www.cplusplus.com/reference/condition_variable/condition_variable/notify_one/
 		//In this case the only thing waiting on this condition variable is lck in foo()
 	cv.notify_one();
+	//Can also use
+	//cv.notify_all();
+	//uncomment the above and comment "cv.notify_one();" and try it
 }
