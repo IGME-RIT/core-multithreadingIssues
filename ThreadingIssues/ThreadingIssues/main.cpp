@@ -102,7 +102,6 @@ int main()
 	HighContension highContensionExample;
 	//highContensionExample.highContensionExample();
 
-	//Not done
 	PriorityInversion priorityInversionExample;
 	//priorityInversionExample.priorityInversionExample();
 
