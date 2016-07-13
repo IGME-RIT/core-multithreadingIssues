@@ -63,7 +63,6 @@ void foo()
 		//To have the code run long enough to cause a deadlock
 	for (int i = 0; i < 100; i++)
 	{
-		//why the double mutexes?
 		m1.lock();
 		m2.lock();
 		num++;
