@@ -131,3 +131,9 @@ void barSol()
 		m1.unlock();
 	}
 }
+
+//Now the above example is obviously a naive implementation of deadlock and its solution
+//The thing is that with the more complex code you might not be able to reorder the locks
+//This is where you write code that gives one thread priority, making one thread give up the lock for another
+//You could also make it so that you write code where each thread checks if another thread needs the mutex and give it up
+	//This can result in Livelock, so be careful
