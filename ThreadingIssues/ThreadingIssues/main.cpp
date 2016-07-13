@@ -79,6 +79,7 @@ This means that 16-byte reads and writes of streaming SIMD extension (SSE) regis
 int main()
 {
 	//Go to the individual CPP files for the tutorials
+	//And they 
 
 	RaceConditions raceCondtionExample;
 	//raceCondtionExample.raceConditionsExample();
@@ -91,7 +92,7 @@ int main()
 	//livelockExample.livelockExample();
 
 	ConditionVariables conditionVariableExample;
-	//conditionVariableExample.conditionVariablesExample();
+	conditionVariableExample.conditionVariablesExample();
 
 	//Not done - has weird issue with most threads showing that they took zero seconds
 		//still weird
