@@ -20,13 +20,13 @@ static void bar2();
 void ConditionVariables::conditionVariablesExample()
 {
 	//This is for the basic example
-	std::thread t1(foo1);
+	/*std::thread t1(foo1);
 	std::thread t2(bar1);
 
 	if (t1.joinable())
 		t1.join();
 	if (t2.joinable())
-		t2.join();
+		t2.join();*/
 
 
 	printf("\nnotify_one() example:\n");
@@ -45,23 +45,23 @@ void ConditionVariables::conditionVariablesExample()
 			threads1[i].join();
 	}
 
-	printf("\nnotify_all() example:\n");
+	//printf("\nnotify_all() example:\n");
 
-	//notify_all() example
-	std::thread threads2[8];
+	////notify_all() example
+	//std::thread threads2[8];
 
-	threads2[0] = std::thread(foo2);
+	//threads2[0] = std::thread(foo2);
 
-	for (int i = 1; i < 8; i++)
-	{
-		threads2[i] = std::thread(bar2);
-	}
+	//for (int i = 1; i < 8; i++)
+	//{
+	//	threads2[i] = std::thread(bar2);
+	//}
 
-	for (int i = 0; i < 8; i++)
-	{
-		if (threads2[i].joinable())
-			threads2[i].join();
-	}
+	//for (int i = 0; i < 8; i++)
+	//{
+	//	if (threads2[i].joinable())
+	//		threads2[i].join();
+	//}
 }
 
 void foo1()
@@ -103,7 +103,6 @@ void foobar(int numThread)
 {
 	//Acquire the lock
 	std::unique_lock<std::mutex> lck(m);
-	int temp = 100;
 
 	//Check to see if this is the first thread
 		//if it isn't, wait
@@ -114,18 +113,15 @@ void foobar(int numThread)
 	if (numThread != 0)
 	{
 		cv.wait(lck);
-		//Just waiting
-		for (int i = temp; i > 0; --i)
-		{
-			printf("T%d Waiting: %d\n", numThread, i);
-		}
 	}
-	else
-		std::this_thread::sleep_for(std::chrono::seconds(10));
-
 	
-
+	//Just waiting
+	for (int i = 10000; i > 0; --i)
+	{
+		printf("T%d Waiting: %d\n", numThread, i);
+	}
 	cv.notify_one();
+	
 	printf("Finally ready!\n");
 }
 
