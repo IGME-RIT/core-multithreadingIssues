@@ -80,7 +80,7 @@ void func1()
 	}
 
 	printf("F1 Done!\n");
-	//Need to unlock both incase the function has both
+	//Need to unlock both in case the function has both
 	mtx1.unlock();
 	mtx2.unlock();
 }
