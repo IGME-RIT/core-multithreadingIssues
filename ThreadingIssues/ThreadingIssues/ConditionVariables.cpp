@@ -29,39 +29,43 @@ void ConditionVariables::conditionVariablesExample()
 		t2.join();*/
 
 
-	printf("\nnotify_one() example:\n");
+	//printf("\nnotify_one() example:\n");
 
-	//notify_one() example
-	std::thread threads1[8];
+	////notify_one() example
+	//std::thread threads1[4];
+	//
+	//for (int i = 3; i >= 0; i--)
+	//{
+	//	printf("i: %d\n", i);
+	//	threads1[i] = std::thread(foobar, i);
+	//}
+
+	//for (int i = 3; i >= 0; i--)
+	//{
+	//	if (threads1[i].joinable())
+	//		threads1[i].join();
+	//}
+
+	printf("\nnotify_all() example:\n");
+
+	//notify_all() example
+	std::thread threads2[4];
+
 	
-	for (int i = 0; i < 8; i++)
+
+	for (int i = 3; i >= 0; i--)
 	{
-		threads1[i] = std::thread(foobar, i);
+		if ( i != 0)
+			threads2[i] = std::thread(bar2);
+		else
+			threads2[0] = std::thread(foo2);
 	}
 
-	for (int i = 0; i < 8; i++)
+	for (int i = 3; i >= 0; i--)
 	{
-		if (threads1[i].joinable())
-			threads1[i].join();
+		if (threads2[i].joinable())
+			threads2[i].join();
 	}
-
-	//printf("\nnotify_all() example:\n");
-
-	////notify_all() example
-	//std::thread threads2[8];
-
-	//threads2[0] = std::thread(foo2);
-
-	//for (int i = 1; i < 8; i++)
-	//{
-	//	threads2[i] = std::thread(bar2);
-	//}
-
-	//for (int i = 0; i < 8; i++)
-	//{
-	//	if (threads2[i].joinable())
-	//		threads2[i].join();
-	//}
 }
 
 void foo1()
@@ -104,19 +108,19 @@ void foobar(int numThread)
 	//Acquire the lock
 	std::unique_lock<std::mutex> lck(m);
 
-	//Check to see if this is the first thread
+	//Check to see if this is the last thread
 		//if it isn't, wait
 		//This statement exists so that not all threads are waiting cv to notify them
 			//This would mean that no thread makes progress and that would be bad
 
-	//Issues????????????????????????
 	if (numThread != 0)
 	{
 		cv.wait(lck);
 	}
+
 	
 	//Just waiting
-	for (int i = 10000; i > 0; --i)
+	for (int i = 100; i > 0; --i)
 	{
 		printf("T%d Waiting: %d\n", numThread, i);
 	}
